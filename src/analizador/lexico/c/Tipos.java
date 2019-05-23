@@ -10,7 +10,7 @@ public class Tipos {
     }
     
     public boolean esEspacio(int ascii){
-        if(ascii == 32 )
+        if(ascii == 32 || ascii == 3 )
             return true;
         else
             return false;

@@ -234,7 +234,7 @@ public class Clasifica {
                     break;
 
                 } else if (movs > 2) {
-                    System.out.println("espacio en caracter");
+//                    System.out.println("espacio en caracter");
                     q2ErrorLexico(archivo, movs);
                     break;
 

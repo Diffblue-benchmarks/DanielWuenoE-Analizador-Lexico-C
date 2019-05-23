@@ -39,7 +39,7 @@ public class Clasifica {
             } else {
                 movs++;
                 //error léxico (inicia en 0)
-                //pasar a q2
+                q2ErrorLexico(archivo, movs);
                 break;
 
             }
@@ -54,6 +54,7 @@ public class Clasifica {
             if (tipo.esEspacio(conv.getAscii()) == true) {
                 //insertar en lista error
                 actual = actual + movs + 1;
+                break;
             } else{
                 movs++;
             }
@@ -75,12 +76,12 @@ public class Clasifica {
 
             } else if (tipo.esPunto(conv.getAscii()) == true) {
                 movs++;
-                //pasar a q5
+                q5Float(archivo, movs);
                 break;
 
             } else {
                 movs++;
-                //pasar a q2
+                q2ErrorLexico(archivo, movs);
                 break;
             }
         }
@@ -98,19 +99,16 @@ public class Clasifica {
                 
             } else if (tipo.esNumero(conv.getAscii()) == true) {
                 movs++;
-                break;
 
             } else if (tipo.esMayuscula(conv.getAscii()) == true) {
                 movs++;
-                break;
 
             } else if (tipo.esMinuscula(conv.getAscii()) == true) {
                 movs++;
-                break;
 
             } else {
                 movs++;
-                //pasar a q2
+                q2ErrorLexico(archivo, movs);
                 break;
             }
         }
@@ -129,7 +127,8 @@ public class Clasifica {
                 break;
 
             } else {
-                //pasar a q2
+                movs++;
+                q2ErrorLexico(archivo, movs);
                 break;
             }
         }
@@ -148,7 +147,7 @@ public class Clasifica {
             } else {
                 movs++;
                 //error léxico (00)
-                //pasar a q2
+                q2ErrorLexico(archivo, movs);
                 break;
 
             }

@@ -1,0 +1,5 @@
+boolean acci0n = uno ;
+use 1rchivo = dos ;
+123
+123u
+i12wdf

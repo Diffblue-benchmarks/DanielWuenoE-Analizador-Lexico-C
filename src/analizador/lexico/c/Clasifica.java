@@ -23,4 +23,27 @@ public class Clasifica {
             }
         }
     }
+    
+    public void q1Cero(){
+        
+    }
+    public void q2ErrorLexico(){
+        
+    }
+    public void q3Numero(){
+        
+    }
+    public void q4Identificador(){
+        
+    }
+    public void q5Float(){
+        
+    }
+    public void q6Float(){
+        
+    }
+    public void q7Caracter(){
+        
+    }
+    
 }

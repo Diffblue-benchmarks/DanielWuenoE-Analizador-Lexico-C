@@ -1,6 +1,6 @@
 package Estructuras;
 
-public class Listas {
+public class Listas<dato> {
     public NodoTSim inicioSim, finSim;
     public NodoTErrores inicioErr, finErr;
     public NodoTToken inicioTok, finTok;
@@ -20,11 +20,11 @@ public class Listas {
     Palabra  Token
     */
     
-    class NodoTSim {
-        public String tipoSim, identificador; int valor;
+    class NodoTSim<dato> {
+        public String tipoSim, identificador; dato valor;
         public NodoTSim siguiente;
         
-        public NodoTSim(String tipoSim, String identificador, int valor) {
+        public NodoTSim(String tipoSim, String identificador, dato valor) {
             this.tipoSim = tipoSim;
             this.identificador = identificador;
             this.valor = valor;
@@ -41,10 +41,10 @@ public class Listas {
     }
     
     class NodoTToken {
-        public String palabra, tipoTok; int tokenTok;
+        public dato palabra; String tipoTok; int tokenTok;
         public NodoTToken siguiente;
         
-        public NodoTToken (String palabra, String tipoTok, int tokenTok) {
+        public NodoTToken (dato palabra, String tipoTok, int tokenTok) {
             this.palabra = palabra;
             this.tipoTok = tipoTok;
             this.tokenTok = tokenTok;
@@ -65,7 +65,7 @@ public class Listas {
                 Símbolos
             Tipo    Identificador   Valor
         */
-        public void agregarElementoLSimboloss(String tipoSim, String identificador, int valor) {
+        public void agregarElementoLSimbolos(String tipoSim, String identificador, dato valor) {
             NodoTSim agregarElemento = new NodoTSim(tipoSim, identificador, valor);
             if (inicioSim != null) {  // Existe el inicio
                 finSim.siguiente = agregarElemento;  //Agregar al final de la
@@ -74,6 +74,7 @@ public class Listas {
                 inicioSim = finSim = agregarElemento; //Crea la lista con su primer Nodo
             }
         }
+        
         
         /*
                 Errores
@@ -93,7 +94,7 @@ public class Listas {
                 Tokens
             Palabra  Tipo   Token
         */
-        public void agregarElementoLTokens(String palabra, String tipo, int token) {
+        public void agregarElementoLTokens(dato palabra, String tipo, int token) {
             NodoTToken agregarElemento = new NodoTToken(palabra, tipo, token);
             if (inicioTok != null) {
                 finTok.siguiente = agregarElemento;
@@ -117,11 +118,40 @@ public class Listas {
             }
         }
         
-//        public void mostrarLista() {
-//            NodoTErrores recorrer = inicioErr;
-//            while (recorrer != null) {
-//                System.out.println(recorrer.error);
-//                recorrer = recorrer.siguiente;
-//            }
-//        }
+        public void mostrarListaErrores() {
+            NodoTErrores recorrer = inicioErr;
+            while (recorrer != null) {
+                System.out.println(recorrer.error);
+                recorrer = recorrer.siguiente;
+            }
+        }
+        
+        public void mostrarListaSimbolos() {
+            NodoTSim recorrer = inicioSim;
+            while (recorrer != null) {
+                System.out.println(recorrer.tipoSim + "\t" +
+                                   recorrer.identificador + "\t" +
+                                   recorrer.valor);
+                recorrer = recorrer.siguiente;
+            }
+        }
+        
+        public void mostrarListaTokens() {
+            NodoTToken recorrer = inicioTok;
+            while (recorrer != null) {
+                System.out.println(recorrer.palabra + "\t" +
+                                   recorrer.tipoTok + "\t" +
+                                   recorrer.tokenTok);
+                recorrer = recorrer.siguiente;
+            }
+        }
+        
+        public void mostrarListaReservadas() {
+            NodoTReservadas recorrer = inicioR;
+            while (recorrer != null) {
+                System.out.println(recorrer.palabraR + "\t" +
+                                   recorrer.tokenR + "\t");
+                recorrer = recorrer.siguiente;
+            }
+        }
 }

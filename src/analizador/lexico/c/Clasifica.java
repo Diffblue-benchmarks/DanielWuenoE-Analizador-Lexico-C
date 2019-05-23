@@ -287,10 +287,13 @@ public class Clasifica {
 
     public static void main(String[] args) {
         Clasifica obj = new Clasifica();
+        LeerArchivo leer = new LeerArchivo();
+        leer.leerArchivo();
         
-        String archivo = "Este .9 Este 0 00 .9 es 002 00t un Ar rA rA3 rA3.s 4.3e4 archivo archivo2 archi. 0. de prueba 12 12.12 0 0 00 edwsd 12 12.1 . . .. edsd # # ##";
+        String archivo = "Este .9 Este 0 00 .9 es 002 00t un Ar rA rA3 rA3.s 4.3e4 archivo archivo2 archi. 0. de prueba 12 12.12 0 0 00 edwsd 12 12.1 . . .. edsd # # ##  ";
         String archivo2 = "e 0 palabra e";
-        obj.q0(archivo, 0);
+        String archivo3 = leer.datos();
+        obj.q0(archivo3, 0);
 //        obj.im(archivo);
 
         obj.mostrarTablas();

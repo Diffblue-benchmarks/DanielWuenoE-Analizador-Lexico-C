@@ -1,6 +1,7 @@
 package analizador.lexico.c;
 
 import Estructuras.Listas;
+import Lectura.LeerArchivo;
 
 public class Clasifica {
 
@@ -210,7 +211,9 @@ public class Clasifica {
     
     public static void main(String[] args) {
         Clasifica obj = new Clasifica();
-        String archivo = "Este es un # 0 archivo de prueba 12 12.12 . 0 00 12 12.1 #";
+        LeerArchivo l = new LeerArchivo();
+        l.leerArchivo();
+        String archivo = l.datos();//"Este es un # 0 archivo de prueba 12 12.12 . 0 00 12 12.1 #";
         
         obj.q0(archivo, 0);
         obj.mostrarTablas();

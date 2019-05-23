@@ -5,7 +5,7 @@ public class Clasifica {
     private String caso;
     Tipos tipo = new Tipos();
     ConversionCaracter conv = new ConversionCaracter();
-
+//
     public void q0(String archivo) {
         for (int i = 0; i < archivo.length(); i++) {
             conv.convertirCaracter(archivo.charAt(i));

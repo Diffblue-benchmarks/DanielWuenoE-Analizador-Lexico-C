@@ -1,4 +1,4 @@
-package Lexico;
+package analizador.lexico.c;
 
 //**********            Enumerado Palabras Reservadas            **********//
     
@@ -65,6 +65,12 @@ public class PalabraReservada {
         }
         return -1; // en caso contrario masna un -1 que seria el caso de error (no encontrado)
     }
+    
+    public void reservadas() {
+        for (PalabrasReservadas pr : PalabrasReservadas.values()) {
+            System.out.println(pr.name() + "\t" + pr.getValor());
+        }
+    }
 }
 
 //class test {
@@ -72,5 +78,6 @@ public class PalabraReservada {
 //        PalabraReservada pr = new PalabraReservada();
 //        System.out.println("Existe: " + pr.ExistePalabraReservada("boolean"));
 //        System.out.println("Palabra: " + pr.getValorPalabraReservada("boolean"));
+//        
 //    }
 //}

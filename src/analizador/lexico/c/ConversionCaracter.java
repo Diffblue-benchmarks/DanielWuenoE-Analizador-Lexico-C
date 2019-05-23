@@ -1,4 +1,4 @@
-package Lexico;
+package analizador.lexico.c;
 
 public class ConversionCaracter {
     

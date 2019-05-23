@@ -1,6 +1,27 @@
-package Lexico;
+package analizador.lexico.c;
 
 public class Tipos {
+    
+    public boolean esPunto(int ascii){
+        if(ascii == 46 )
+            return true;
+        else
+            return false;
+    }
+    
+    public boolean esEspacio(int ascii){
+        if(ascii == 32 )
+            return true;
+        else
+            return false;
+    }
+    
+    public boolean esCero(int ascii){
+        if(ascii == 48 )
+            return true;
+        else
+            return false;
+    }
     
     public boolean esMayuscula(int ascii){              //verifica si el caracter es mayuscula
         if(ascii >= 65 && ascii <= 90)
@@ -17,7 +38,7 @@ public class Tipos {
     }
     
     public boolean esNumero(int ascii){                 //verifica si el caracter es numero
-        if(ascii >= 48 && ascii <= 57)
+        if(ascii >= 49 && ascii <= 57)
             return true;
         else
             return false;

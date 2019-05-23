@@ -294,7 +294,7 @@ public class Clasifica {
         String archivo2 = "e 0 palabra e";
         String archivo3 = leer.datos();
         obj.q0(archivo3, 0);
-//        obj.im(archivo);
+ //        obj.im(archivo);
 
         obj.mostrarTablas();
     }

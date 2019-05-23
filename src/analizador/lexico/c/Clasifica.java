@@ -61,21 +61,14 @@ public class Clasifica {
 
         for (int i = actual; i < archivo.length(); i++) {
             conv.convertirCaracter(archivo.charAt(i));
-            if (tipo.esEspacio(conv.getAscii()) == true) {
-                //insertar en lista de tokens desde archivo.charAt(actual-movs) hasta archivo.charAt(actual)
-                System.out.println(crearCadena(actual, actual+movs, archivo)+"\tCero");
-                //list.agregarElementoLSimbolos(caso, crearCadena(actual, actual+movs, archivo), i); //tipo, identifiador, valor
-                list.agregarElementoLTokens(crearCadena(actual, actual+movs, archivo), "Cero", i); //palabra, tipo, token
-                actual = actual + movs+1;
-                q0(archivo, actual);
-                break;
-                
-            } else {
+            if (tipo.esCero(conv.getAscii()) == true) {
                 movs++;
             } else if (tipo.esEspacio(conv.getAscii()) == true) {
                 if (movs == 2) {
                     //insertar en lista de tokens desde archivo.charAt(actual-movs) hasta archivo.charAt(actual)
                     System.out.println(crearCadena(actual, actual + movs, archivo) + "\tCero");
+                    //list.agregarElementoLSimbolos(caso, crearCadena(actual, actual+movs, archivo), i); //tipo, identifiador, valor
+                    list.agregarElementoLTokens(crearCadena(actual, actual + movs, archivo), "Cero", i); //palabra, tipo, token
                     actual = actual + movs;
                     q0(archivo, actual);
                     break;
@@ -101,7 +94,7 @@ public class Clasifica {
             if (tipo.esEspacio(conv.getAscii()) == true) {
                 //insertar en lista error
                 System.out.println(crearCadena(actual, actual + movs, archivo) + "\tError Lexico");
-                list.agregarElementoLErrores(crearCadena(actual, actual+movs, archivo)); // Error
+                list.agregarElementoLErrores(crearCadena(actual, actual + movs, archivo)); // Error
                 actual = actual + movs;
                 q0(archivo, actual);
                 break;
@@ -121,9 +114,9 @@ public class Clasifica {
 
             } else if (tipo.esEspacio(conv.getAscii()) == true) {
                 //insertar en lista de tokens desde archivo.charAt(actual-movs) hasta archivo.charAt(actual)
-                System.out.println(crearCadena(actual, actual+movs, archivo)+"\tNumero");
+                System.out.println(crearCadena(actual, actual + movs, archivo) + "\tNumero");
                 //list.agregarElementoLSimbolos(caso, crearCadena(actual, actual+movs, archivo), i); //tipo, identifiador, valor
-                list.agregarElementoLTokens(crearCadena(actual, actual+movs, archivo), "Número", i); //palabra, tipo, token
+                list.agregarElementoLTokens(crearCadena(actual, actual + movs, archivo), "Número", i); //palabra, tipo, token
                 actual = actual + movs; //+1 por el espacio
                 q0(archivo, actual);
                 break;
@@ -147,9 +140,9 @@ public class Clasifica {
             conv.convertirCaracter(archivo.charAt(i));
             if (tipo.esEspacio(conv.getAscii()) == true) {
                 //insertar en lista de tokens desde archivo.charAt(actual-movs) hasta archivo.charAt(actual) 
-                System.out.println(crearCadena(actual, actual+movs, archivo)+"\tIdentificador");
+                System.out.println(crearCadena(actual, actual + movs, archivo) + "\tIdentificador");
                 //list.agregarElementoLSimbolos(caso, crearCadena(actual, actual+movs, archivo), i); //tipo, identifiador, valor
-                list.agregarElementoLTokens(crearCadena(actual, actual+movs, archivo), "Identificador", i); //palabra, tipo, token
+                list.agregarElementoLTokens(crearCadena(actual, actual + movs, archivo), "Identificador", i); //palabra, tipo, token
                 actual = actual + movs; //+1 por el espacio
                 q0(archivo, actual);
                 break;
@@ -179,10 +172,10 @@ public class Clasifica {
 
             } else if (tipo.esEspacio(conv.getAscii()) == true) {
                 //insertar en lista de tokens desde archivo.charAt(actual-movs) hasta archivo.charAt(actual) 
-                System.out.println(crearCadena(actual, actual+movs, archivo)+"\tFloat");
+                System.out.println(crearCadena(actual, actual + movs, archivo) + "\tFloat");
                 //list.agregarElementoLSimbolos(caso, crearCadena(actual, actual+movs, archivo), i); //tipo, identifiador, valor
-                list.agregarElementoLTokens(crearCadena(actual, actual+movs, archivo), "Float", i); //palabra, tipo, token
-                actual = actual + movs+1; //+1 por el espacio
+                list.agregarElementoLTokens(crearCadena(actual, actual + movs, archivo), "Float", i); //palabra, tipo, token
+                actual = actual + movs + 1; //+1 por el espacio
                 q0(archivo, actual);
                 break;
 
@@ -225,16 +218,7 @@ public class Clasifica {
 //            System.out.println(movs + " : movs");
 //            System.out.println(archivo.length());
             conv.convertirCaracter(archivo.charAt(i));
-            if (tipo.esEspacio(conv.getAscii()) == true) {
-                //insertar en lista de tokens desde archivo.charAt(actual-movs) hasta archivo.charAt(actual)
-                
-                System.out.println(crearCadena(actual, actual+movs, archivo)+"\tCaracter");
-                //list.agregarElementoLTokens(caso, crearCadena(actual, actual+movs, archivo), i); //palabra, tipo, token
-                actual = actual + movs+1;
-                q0(archivo, actual);
-                break;
-                
-            } else {
+            if (tipo.esCaracter(conv.getAscii()) == true) {
                 movs++;
 //                if (i  == archivo.length()-1) {
 //                    System.out.println(crearCadena(actual, actual + movs-1, archivo) + "\tCaracter");
@@ -244,6 +228,7 @@ public class Clasifica {
                 if (movs == 2) {
                     //insertar en lista de tokens desde archivo.charAt(actual-movs) hasta archivo.charAt(actual)
                     System.out.println(crearCadena(actual, actual + movs, archivo) + "\tCaracter");
+                    //list.agregarElementoLTokens(caso, crearCadena(actual, actual+movs, archivo), i); //palabra, tipo, token
                     actual = actual + movs;
                     q0(archivo, actual);
                     break;
@@ -281,7 +266,6 @@ public class Clasifica {
         }
     }
 
-    
     public void mostrarTablas() {
         System.out.println("\tTABLA DE SÍMBOLOS");
         System.out.println("TIPO\tIDENTIFICADOR\tVALOR");
@@ -299,7 +283,7 @@ public class Clasifica {
         System.out.println("PALABRA\tTOKEN");
         pr.reservadas();
     }
-    
+
     public static void main(String[] args) {
         Clasifica obj = new Clasifica();
         String archivo = "Este .9 Este 0 00 .9 es 002 00t un Ar rA rA3 rA3.s 4.3e4 archivo archivo2 archi. 0. de prueba 12 12.12 0 0 00 edwsd 12 12.1 . . .. edsd # # ##";

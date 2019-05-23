@@ -9,14 +9,8 @@ public class Preludio {
         archivo.leerArchivo();
         
         String datos = archivo.datos();
-        String apuntadorActual = " ";
         int i = 0, posicionIni = 0, posicionFin = 0, lineas = 0;
         
-        for (int j = 0; j < datos.length(); j++) {
-            if (datos.charAt(j) == apuntadorActual.charAt(0)) {
-                lineas++;
-            }
-        }
         System.out.println(lineas);
         while (i < lineas) {
             for (int j = posicionIni; j < datos.length(); j++) {
@@ -29,11 +23,6 @@ public class Preludio {
                 }
                 
             }
-            System.out.println("Ini:: " + posicionIni + " Fin: " + posicionFin);
-            System.out.println(":" + datos.substring(posicionIni, posicionFin) + ":");
-
-            posicionIni += posicionFin + 1;
-//            System.out.println("Ini: " + posicionIni + " Fin: " + posicionFin);
             i++;
             
         }
